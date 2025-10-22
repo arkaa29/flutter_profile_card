@@ -5,50 +5,33 @@ class ProfileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Arkananta'),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.redAccent,
+        title: const Text(
+          'My Profile',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-        /**
-         * ROW dan COLUM BISA MEMILIKI BANYAK WIDGET
-         * ROW ITU KE SAMPING
-         * COLUM ITU KEBAWAH
-         */
-        body: Column(
+      ),
+      body:  Center(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            SizedBox(
-              width: 200,
-              child: Container(
-                child: Text(
-                  'NAMA',
-                  style: TextStyle(
-                    color: Colors.amber,
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    backgroundColor: Colors.redAccent,
-                    fontFamily: 'Poppins', // harus ada font nya
-                  ),
-                ),
-              ),
-            ),
+          children: [
             Text(
-              'UCUP GUERERO',
-              style: TextStyle(
-                backgroundColor: Color.fromARGB(
-                200,
-                100,
-                100,
-                100,
-                )
-              ),
-            ),
+              'Ucup Guerero', 
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),),
+              Row(
+                children: <Widget>[
+                  Column(),
+                  Column(),
+                ],
+              )
           ],
         ),
       ),
-      debugShowCheckedModeBanner: false,
     );
   }
 }
