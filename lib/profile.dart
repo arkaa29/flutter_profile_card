@@ -35,9 +35,9 @@ class ProfileCard extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 20,
-                      vertical: 50,
+                    padding: const EdgeInsets.only(
+                      top: 20,
+                      bottom: 50,
                     ),
                     /**
                     * only : hanya memberi satu posisi
@@ -55,6 +55,29 @@ class ProfileCard extends StatelessWidget {
                   Text(
                     'Ucup Guerero',
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.5,
+                              decoration: BoxDecoration(
+                                color: Colors.redAccent, borderRadius: BorderRadius.circular(
+                                  15),
+                                  ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text('Addres'),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Column(),
+                    ],
                   ),
                 ],
               ),
