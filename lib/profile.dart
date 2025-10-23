@@ -10,25 +10,55 @@ class ProfileCard extends StatelessWidget {
         backgroundColor: Colors.redAccent,
         title: const Text(
           'My Profile',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-          ),
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
-      body:  Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Ucup Guerero', 
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold,),),
-              Row(
-                children: <Widget>[
-                  Column(),
-                  Column(),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.8, // 80% lebarnya
+              height: 100,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                color: Colors.amber,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.redAccent,
+                    spreadRadius: 5.0,
+                    blurRadius: 7.0,
+                    offset: Offset(0, 3),
+                  ),
                 ],
-              )
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 20,
+                      vertical: 50,
+                    ),
+                    /**
+                    * only : hanya memberi satu posisi
+                    * symmertic : memberi jarak sumbu x/y
+                    * all : memberi semua jarak
+                    */
+                    child: Text(
+                      'NAME',
+                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Ucup Guerero',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
