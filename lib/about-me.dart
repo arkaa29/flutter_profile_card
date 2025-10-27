@@ -171,6 +171,26 @@ class AboutMe extends StatelessWidget {
                         ),
                       ],
                     ),
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'TIDUR',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Icon(
+                          Icons.bed,
+                          size: 30,
+                        ),
+                        Text(
+                          '21.30 - 03.15',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ],
