@@ -439,7 +439,7 @@ class AboutMe extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 110,
+                  height: 200,
                   child: ListView.builder(
                     scrollDirection: Axis.horizontal,
                     itemCount: urlList.length,
@@ -450,7 +450,7 @@ class AboutMe extends StatelessWidget {
                           backgroundImage: NetworkImage(
                             '${urlList[index]}', 
                           ),
-                          radius: 50,
+                          radius: 100,
                         ),
                       );
                     }),
