@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_application_1/detail-profile.dart';
 
 class AboutMe extends StatelessWidget {
   const AboutMe({super.key});
@@ -15,7 +16,9 @@ class AboutMe extends StatelessWidget {
     '😴',
     '🔥',
     '🤡',
-    ];
+  ];
+
+  final title = 'Arkananta Putra';
 
   final List<String> urlList = const <String>[
     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=872',
@@ -38,7 +41,7 @@ class AboutMe extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('About Me', style: TextStyle(fontWeight: FontWeight.bold),),
+        title: Text('About Me', style: TextStyle(fontWeight: FontWeight.bold)),
         backgroundColor: Colors.amberAccent,
       ),
       body: SingleChildScrollView(
@@ -50,36 +53,32 @@ class AboutMe extends StatelessWidget {
                 /**
                  * IMAGE PROFILE
                  */
-              //   Image.asset('assets/profile.png',
-              //   width: 100,
-              //   height: 100,
-              // ),
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: NetworkImage(
-                  'assets/roblos.png',
+                //   Image.asset('assets/profile.png',
+                //   width: 100,
+                //   height: 100,
+                // ),
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: NetworkImage('assets/roblos.png'),
                 ),
-              ),
                 /**
                  * TEXT NAME
                  */
                 Padding(
                   padding: const EdgeInsets.only(top: 10.0),
                   child: Text(
-                    'Arkananta Putra'.toUpperCase(),
+                    title.toUpperCase(),
                     style: TextStyle(
-                      fontSize: 18, 
+                      fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Kids Magazine'
+                      fontFamily: 'Kids Magazine',
                     ),
                   ),
                 ),
                 /**
                  * SPACER
                  */
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
                 /**
                  * TEXT ABOUT
                  */
@@ -91,9 +90,7 @@ class AboutMe extends StatelessWidget {
                 /**
                  * SPACER
                  */
-                SizedBox(
-                  height: 15,
-                ),
+                SizedBox(height: 15),
                 /**
                  * CARD CONTAINER ANDROID
                  */
@@ -106,9 +103,7 @@ class AboutMe extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.amber,
-                            borderRadius: BorderRadius.circular(
-                              20
-                            ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           child: Row(
                             children: [
@@ -117,9 +112,7 @@ class AboutMe extends StatelessWidget {
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.greenAccent,
-                                    borderRadius: BorderRadius.circular(
-                                      20,
-                                    ),
+                                    borderRadius: BorderRadius.circular(20),
                                   ),
                                   child: Icon(
                                     Icons.gamepad,
@@ -129,19 +122,19 @@ class AboutMe extends StatelessWidget {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 4.0,
+                                ),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       'GAME PROJECT',
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                    Text(
-                                      '10 Gaes',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
+                                    Text('10 Gaes'),
                                   ],
                                 ),
                               ),
@@ -158,16 +151,13 @@ class AboutMe extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: Colors.amber,
                             borderRadius: BorderRadius.circular(15),
-                            border: Border.all(
-                              color: Colors.black12,
-                              width: 2,
-                            ),
+                            border: Border.all(color: Colors.black12, width: 2),
                             boxShadow: [
                               BoxShadow(
                                 blurRadius: 2,
                                 offset: Offset(2, 3),
                                 color: Colors.black,
-                              )
+                              ),
                             ],
                           ),
                           child: Row(
@@ -177,9 +167,7 @@ class AboutMe extends StatelessWidget {
                                 height: 75,
                                 decoration: BoxDecoration(
                                   color: Colors.greenAccent,
-                                  borderRadius: BorderRadius.circular(
-                                    15
-                                  ),
+                                  borderRadius: BorderRadius.circular(15),
                                 ),
                                 child: Icon(
                                   Icons.android,
@@ -209,27 +197,74 @@ class AboutMe extends StatelessWidget {
                     ),
                   ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => DetailProfile(),),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.green,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'DETAIL PROFILE',
+                        style: TextStyle(
+                          fontFamily: 'Kids Magazine',
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
                   ),
+                ),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailProfile(title: title,),
+                        ),
+                      );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Detail Profile'.toUpperCase(),
+                      ),
+                    ),
+                  ),
+                ),
+                /**
+                 * SCHEDULE
+                 */
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.black,
-                      borderRadius: BorderRadius.circular(
-                        20
-                      ),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('Schedule'.toUpperCase(),
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        letterSpacing: 2,
-                        color: Colors.white,
+                      child: Text(
+                        'Schedule'.toUpperCase(),
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                          letterSpacing: 2,
+                          color: Colors.white,
                         ),
                       ),
                     ),
@@ -247,27 +282,20 @@ class AboutMe extends StatelessWidget {
                           // width: double.infinity ngasih lebar full
                           decoration: BoxDecoration(
                             color: Colors.green,
-                            borderRadius: BorderRadius.circular(
-                              20,
-                            ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
                               children: <Widget>[
-                                Text('Belajar', style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                  ),
+                                Text(
+                                  'Belajar',
+                                  style: TextStyle(fontWeight: FontWeight.w700),
                                 ),
-                                Icon(
-                                Icons.timer,
-                                size: 30,
-                                ),
+                                Icon(Icons.timer, size: 30),
                                 Text(
                                   '07.30 - 14.30',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  style: TextStyle(fontWeight: FontWeight.w600),
                                 ),
                               ],
                             ),
@@ -285,9 +313,7 @@ class AboutMe extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 255, 217, 0),
-                            borderRadius: BorderRadius.circular(
-                              20,
-                            ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -295,19 +321,12 @@ class AboutMe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   'MEMBACA',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                                  style: TextStyle(fontWeight: FontWeight.w700),
                                 ),
-                                Icon(
-                                  Icons.book,
-                                  size: 30,
-                                ),
+                                Icon(Icons.book, size: 30),
                                 Text(
                                   '20.00 - 21.00',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  style: TextStyle(fontWeight: FontWeight.w600),
                                 ),
                               ],
                             ),
@@ -322,9 +341,7 @@ class AboutMe extends StatelessWidget {
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.greenAccent,
-                            borderRadius: BorderRadius.circular(
-                              20,
-                            ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
@@ -332,19 +349,12 @@ class AboutMe extends StatelessWidget {
                               children: <Widget>[
                                 Text(
                                   'TIDUR',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                                  style: TextStyle(fontWeight: FontWeight.w700),
                                 ),
-                                Icon(
-                                  Icons.bed,
-                                  size: 30,
-                                ),
+                                Icon(Icons.bed, size: 30),
                                 Text(
                                   '21.30 - 03.15',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  style: TextStyle(fontWeight: FontWeight.w600),
                                 ),
                               ],
                             ),
@@ -354,21 +364,17 @@ class AboutMe extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
                 Container(
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.cyanAccent,
-                    borderRadius: BorderRadius.circular(
-                      20
-                    ),
+                    borderRadius: BorderRadius.circular(20),
                   ),
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: Text(
-                      'BADGES', 
+                      'BADGES',
                       style: TextStyle(
                         fontFamily: 'Kids Magazine',
                         letterSpacing: 5,
@@ -388,7 +394,7 @@ class AboutMe extends StatelessWidget {
                      * return = tempat widget dari data list
                      */
                     scrollDirection: Axis.horizontal,
-                    children: badgeList.map((e){
+                    children: badgeList.map((e) {
                       return Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Container(
@@ -396,38 +402,30 @@ class AboutMe extends StatelessWidget {
                           height: 100,
                           decoration: BoxDecoration(
                             color: Colors.redAccent,
-                            borderRadius: BorderRadius.circular(
-                              20,
-                              ),
+                            borderRadius: BorderRadius.circular(20),
                           ),
                           child: Center(
-                            child: Text(
-                              '${e}',
-                              style: TextStyle(
-                                fontSize: 60,
-                              ),
-                            ),
+                            child: Text('${e}', style: TextStyle(fontSize: 60)),
                           ),
                         ),
                       );
                     }).toList(),
                   ),
                 ),
-                Text('data image',
-                style: TextStyle(
+                Text(
+                  'data image',
+                  style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
                     letterSpacing: 5,
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                SizedBox(height: 10),
                 SizedBox(
                   height: 110,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
-                    children: urlList.map((url){
+                    children: urlList.map((url) {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CircleAvatar(
@@ -447,13 +445,12 @@ class AboutMe extends StatelessWidget {
                       return Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CircleAvatar(
-                          backgroundImage: NetworkImage(
-                            '${urlList[index]}', 
-                          ),
+                          backgroundImage: NetworkImage('${urlList[index]}'),
                           radius: 100,
                         ),
                       );
-                    }),
+                    },
+                  ),
                 ),
               ],
             ),
